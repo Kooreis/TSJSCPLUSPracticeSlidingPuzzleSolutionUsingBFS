@@ -1,10 +1,5 @@
-#include <iostream>
-#include <queue>
-#include <vector>
-#include <map>
-#include <algorithm>
-
-using namespace std;
-
-typedef vector<int> Puzzle;
-map<Puzzle, int> dist;
+Puzzle move(const Puzzle &p, int i, int j) {
+    Puzzle ret(p);
+    swap(ret[i], ret[j]);
+    return ret;
+}
