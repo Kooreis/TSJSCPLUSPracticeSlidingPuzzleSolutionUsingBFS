@@ -1,17 +1,8 @@
-class Puzzle {
-    board: number[][];
-    emptySpot: number[];
-    size: number;
-
-    constructor(board: number[][]) {
-        this.board = board;
-        this.size = board.length;
-        for (let i = 0; i < this.size; i++) {
-            for (let j = 0; j < this.size; j++) {
-                if (this.board[i][j] === 0) {
-                    this.emptySpot = [i, j];
-                }
-            }
-        }
+toString(): string {
+        return this.board.map(row => row.join(' ')).join('\n');
     }
-}
+
+    swap([x1, y1]: number[], [x2, y2]: number[]): void {
+        [this.board[x1][y1], this.board[x2][y2]] = [this.board[x2][y2], this.board[x1][y1]];
+        this.emptySpot = [x2, y2];
+    }
